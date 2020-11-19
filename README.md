@@ -1,3 +1,3 @@
 # web_usb_config
 
-A simple usb device configuration tool on web browser. (Recommend to use Chrome)
+A simple usb device configuration tool on web browser. (Recommend using Chrome)
