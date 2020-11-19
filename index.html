@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>usb test</title>
+    <script type="text/javascript" src="js/usb.js"></script>
+    <script type="text/javascript" src="js/config.js"></script>
+    <script type="text/javascript">
+      window.addEventListener("load", function() {
+          USBWrapperInit();
+          if(USBWrapper.hasUSB) {              
+              config = new Config();
+              navigator.usb.getDevices()
+              .then(devices => {
+                  if(devices.length) {
+                      config.connect(devices[0]);
+                  }
+              });
+              navigator.usb.addEventListener('connect', event => {
+                  config.connect(event.device);
+              });
+          }
+      });
+  </script>
+  </head>
+  <body>
+    <div>
+      <div id="log" class="hidden"></div>
+      <button id="connectBtn" onclick="config.newConnection()">connect</button>
+      <button id="disconnectBtn" onclick="config.close()">disconnect</button>
+      <button id="clearBtn" onclick="window.clearLog()">clear log</button>
+    </div>
+  </body>
+</html>
