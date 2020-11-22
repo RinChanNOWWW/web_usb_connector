@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>usb test</title>
+    <link type="text/css" href="css/style.css" rel="stylesheet" />
     <script type="text/javascript" src="js/usb.js"></script>
     <script type="text/javascript" src="js/config.js"></script>
     <script type="text/javascript">
@@ -23,11 +24,22 @@
   </script>
   </head>
   <body>
-    <div>
-      <div id="log" class="hidden"></div>
+    <div id="main">
+      <div id="log"></div>
       <button id="connectBtn" onclick="config.newConnection()">connect</button>
       <button id="disconnectBtn" onclick="config.close()">disconnect</button>
       <button id="clearBtn" onclick="window.clearLog()">clear log</button>
+      <div id="inputs" class="hidden">
+        <div>
+          <div class="input">输入A</div>
+          <input id="inputA" class="input"/><br/>
+        </div>
+        <div>
+          <div class="input">输入B</div>
+          <input id="inputB" class="input"/><br/>
+        </div>
+        <button id="configBtn" onclick="config.setAB()">配置</button>
+      </div>
     </div>
   </body>
 </html>
